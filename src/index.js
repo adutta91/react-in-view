@@ -42,11 +42,11 @@ class Viewable extends Component {
         if (
             // check Y axis
             elBoundingRect.top >= 0 &&
-            elBoundingRect.bottom <= windowHeight &&
+            elBoundingRect.bottom <= (windowHeight + this.props.buffer) &&
             
             // check X axis
             elBoundingRect.left >= 0 &&
-            elBoundingRect.right <= windowWidth
+            elBoundingRect.right <= (windowWidth + this.props.buffer)
         ) {
             return true;
         } else {
@@ -117,6 +117,7 @@ class Viewable extends Component {
 Viewable.propTypes = {
     once         : PropTypes.bool,
     reactionTime : PropTypes.number,
+    buffer       : PropTypes.number,
     delay        : PropTypes.number,
     children     : PropTypes.node,
     onViewEnter  : PropTypes.func,
@@ -128,7 +129,8 @@ Viewable.propTypes = {
 };
 
 Viewable.defaultProps = {
-    once         : false,
+    once         : true,
+    buffer       : 100,
     reactionTime : 500,
     delay        : 500,
     fade         : false,
