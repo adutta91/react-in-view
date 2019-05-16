@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import "./InView.scss";
+import "./Viewable.scss";
 
-class InView extends Component {
+class Viewable extends Component {
     constructor(props) {
         super(props);
         
@@ -69,10 +69,20 @@ class InView extends Component {
     
     update(isInView) {
         if (isInView !== this.state.inView) {
+            this.propCbs(isInView);
+            
             this.timeout = setTimeout(() => {
                 this.setState({ inView: isInView });
                 this.clearTimeout();
             }, this.props.delay);
+        }
+    }
+    
+    propCbs(isInView) {
+        if (this.props.onViewEnter && isInView) {
+            this.props.onViewEnter(this.elRef.current);
+        } else if (this.props.onViewLeave && !isInView) {
+            this.props.onViewEnter(this.elRef.current);
         }
     }
     
@@ -104,18 +114,20 @@ class InView extends Component {
     }
 }
 
-InView.propTypes = {
+Viewable.propTypes = {
     once         : PropTypes.bool,
     reactionTime : PropTypes.number,
     delay        : PropTypes.number,
     children     : PropTypes.node,
+    onViewEnter  : PropTypes.func,
+    onViewLeave  : PropTypes.func,
     
     // animation/style props
     fade    : PropTypes.bool,
     fadeDir : PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
 };
 
-InView.defaultProps = {
+Viewable.defaultProps = {
     once         : false,
     reactionTime : 500,
     delay        : 500,
@@ -123,4 +135,4 @@ InView.defaultProps = {
     fadeDir      : 'left'
 };
 
-export default InView;
+export default Viewable;

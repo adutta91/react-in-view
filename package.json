@@ -1,5 +1,5 @@
 {
-  "name": "react-in-view",
+  "name": "react-viewable",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -37,6 +37,6 @@
     "wrapper",
     "viewport"
   ],
-  "author": "Arjun Dutta",
+  "author": "adutta",
   "license": "ISC"
 }
