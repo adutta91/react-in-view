@@ -41,11 +41,11 @@ class Viewable extends Component {
         
         if (
             // check Y axis
-            elBoundingRect.top >= 0 &&
+            elBoundingRect.top >= (0 - this.props.buffer) &&
             elBoundingRect.bottom <= (windowHeight + this.props.buffer) &&
             
             // check X axis
-            elBoundingRect.left >= 0 &&
+            elBoundingRect.left >= (0 - this.props.buffer) &&
             elBoundingRect.right <= (windowWidth + this.props.buffer)
         ) {
             return true;
