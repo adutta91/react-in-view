@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import "./InView.scss";
+
 class InView extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +31,7 @@ class InView extends Component {
         this.clearTimeout();
     }
     
-    isInView = () => {
+    isInView() {
         // get element position
         const elBoundingRect = this.elRef.current.getBoundingClientRect();
         
@@ -52,7 +54,7 @@ class InView extends Component {
         }
     }
     
-    checkInView = () => {
+    checkInView() {
         if (this.elRef.current) {
             
             const isInView = this.isInView();
@@ -65,7 +67,7 @@ class InView extends Component {
         }
     }
     
-    update = isInView => {
+    update(isInView) {
         if (isInView !== this.state.inView) {
             this.timeout = setTimeout(() => {
                 this.setState({ inView: isInView });
@@ -74,13 +76,13 @@ class InView extends Component {
         }
     }
     
-    stopInterval = () => {
+    stopInterval() {
         clearInterval(this.interval);
 
         this.interval = null;
     }
     
-    clearTimeout = () => {
+    clearTimeout() {
         clearTimeout(this.timeout);
         this.timeout = null;
     }

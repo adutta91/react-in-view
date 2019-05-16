@@ -1,0 +1,41 @@
+.container-in-view {
+  transition: all 1s ease-in-out;
+  transform: translateX(0);
+  transform: translateY(0);
+}
+
+.container-in-view.out.top {
+  transform: translateY(-50px);  
+}
+.container-in-view.out.bottom {
+  transform: translateY(50px);  
+}
+.container-in-view.out.left {
+  transform: translateX(-50px);  
+}
+.container-in-view.out.right {
+  transform: translateX(50px);  
+}
+
+
+.container-in-view.in.top {
+  transform: translateY(0px);
+}
+.container-in-view.in.bottom {
+  transform: translateY(0px);
+}
+.container-in-view.in.left {
+  transform: translateX(0px);
+}
+.container-in-view.in.right {
+  transform: translateX(0px);
+}
+
+
+.container-in-view.in {
+  opacity: 1;
+}
+
+.container-in-view.out {
+  opacity: 0;
+}
