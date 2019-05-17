@@ -133,7 +133,7 @@ Viewable.defaultProps = {
     buffer       : 100,
     reactionTime : 500,
     delay        : 500,
-    fade         : false,
+    fade         : true,
     fadeDir      : 'left'
 };
 

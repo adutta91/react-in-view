@@ -76,6 +76,8 @@ const MyApp = () => {
       delay={500}
       onViewEnter={el => console.log(el)}
       onViewLeave={el => console.log(el)}
+      fade={true}
+      fadeDir="left"
     >
       <MyComponent />
     </Viewable>
