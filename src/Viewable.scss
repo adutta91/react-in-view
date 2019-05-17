@@ -2,9 +2,18 @@
   transition: all 1s ease-in-out;
   transform: translateX(0);
   transform: translateY(0);
+  
+  &.fade {
+    &.out {
+      opacity: 0;
+    }
+    
+    &.in {
+      opacity: 1;
+    }
+  }
 
   &.out {
-    opacity: 0;
     
     &.top {
       transform: translateY(-50px);  
@@ -21,8 +30,7 @@
   }
   
   &.in {
-    opacity: 1;
-    
+
     &.top {
       transform: translateY(0px);
     }
