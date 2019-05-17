@@ -38,6 +38,14 @@ The amount of pixels the wrapper allows to be in view, a larger number will star
 #### default `500`
 The time in milliseconds before which the transition starts once the component is in the viewport
 
+### fade `bool` _optional_
+#### default `true`
+Whether the component fades into view with a transition
+
+### fadeDir `string` _optional_
+#### default `left`
+The direction the component fades in from, can be `top`, `bottom`, `left` or `right`
+
 ### onViewEnter `func` _optional_
 A function that is called every time the component transitions from out of view to into view. Is passed the html element
 
